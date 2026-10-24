@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur Delacorte · Engenheiro de Dados</title>
+  <meta name="description" content="Portfólio de Arthur Viana Delacorte, Engenheiro de Dados no Rio de Janeiro: Azure Databricks, PySpark, SQL, Python, Delta Lake e arquitetura Medallion.">
+  <meta property="og:title" content="Arthur Delacorte · Engenheiro de Dados">
+  <meta property="og:description" content="Pipelines de dados confiáveis, da ingestão ao insight.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07120f">
+
+  <!-- Ícone simples gerado em SVG (iniciais) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307120f'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='28' fill='%2334d399'%3EAD%3C/text%3E%3C/svg%3E">
+
+  <!-- Fontes: Inter (texto) e JetBrains Mono (terminal e detalhes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= Navegação ================= -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#inicio" aria-label="Início">AD<span>.</span></a>
+
+      <nav aria-label="Seções">
+        <ul class="nav__links" id="menu">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a class="nav__cv" href="assets/CV_Arthur_Delacorte.pdf" target="_blank" rel="noopener">CV ↓</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav__toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ================= Hero ================= -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__texto">
+          <p class="eyebrow">Engenharia de Dados · Data Lakehouse · Azure</p>
+          <h1 class="hero__nome">
+            <span>Arthur</span>
+            <span class="hero__sobrenome">Delacorte<span class="cursor" aria-hidden="true">_</span></span>
+          </h1>
+          <p class="hero__cargo">Engenheiro de Dados · Rio de Janeiro</p>
+          <p class="hero__tagline">Pipelines de dados confiáveis, <em>da ingestão ao insight.</em></p>
+
+          <div class="hero__acoes">
+            <a class="btn btn--primario" href="#projetos">Ver projetos</a>
+            <a class="btn" href="assets/CV_Arthur_Delacorte.pdf" target="_blank" rel="noopener">Baixar CV</a>
+          </div>
+
+          <ul class="hero__social">
+            <li><a href="https://github.com/Bolapipa" target="_blank" rel="noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/arthur-viana-delacorte" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+            <li><a href="mailto:delacortearthur@gmail.com">E-mail ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Terminal interativo -->
+        <div class="terminal" id="terminal" aria-label="Terminal interativo">
+          <div class="terminal__barra">
+            <span class="ponto ponto--r"></span><span class="ponto ponto--a"></span><span class="ponto ponto--v"></span>
+            <span class="terminal__titulo">~/arthur/lakehouse</span>
+            <span class="terminal__dica">digite <b>help</b></span>
+          </div>
+          <div class="terminal__corpo" id="terminalCorpo" role="log" aria-live="polite"></div>
+          <form class="terminal__linha" id="terminalForm" autocomplete="off">
+            <label for="terminalInput" class="prompt">❯</label>
+            <input id="terminalInput" type="text" spellcheck="false" aria-label="Comando do terminal" placeholder="help, stack, pipeline…">
+          </form>
+        </div>
+      </div>
+
+      <!-- Faixa do pipeline Medallion animado -->
+      <div class="container">
+        <div class="pipeline" aria-label="Fluxo Medallion: Fontes, Bronze, Silver, Gold, BI e IA">
+          <div class="pipeline__etapa" style="--cor: var(--fonte)"><b>Fontes</b><small>APIs · ERPs · PDFs</small></div>
+          <div class="pipeline__seta"><i></i></div>
+          <div class="pipeline__etapa" style="--cor: var(--bronze)"><b>Bronze</b><small>dados brutos</small></div>
+          <div class="pipeline__seta"><i></i></div>
+          <div class="pipeline__etapa" style="--cor: var(--silver)"><b>Silver</b><small>limpos e tipados</small></div>
+          <div class="pipeline__seta"><i></i></div>
+          <div class="pipeline__etapa" style="--cor: var(--gold)"><b>Gold</b><small>fatos e dimensões</small></div>
+          <div class="pipeline__seta"><i></i></div>
+          <div class="pipeline__etapa" style="--cor: var(--acento)"><b>BI &amp; IA</b><small>dashboards · Genie</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 01 Sobre ================= -->
+    <section class="secao" id="sobre">
+      <div class="container">
+        <h2 class="secao__titulo"><span>01</span> Sobre</h2>
+
+        <div class="sobre__grid">
+          <div class="sobre__texto revelar">
+            <p>
+              Sou Engenheiro de Dados e construí, junto com o time, o <strong>Data Lake corporativo da OceanPact</strong>
+              no Azure Databricks desde o zero: da configuração do ambiente na nuvem até a entrega de dados
+              confiáveis para dashboards e decisões de negócio.
+            </p>
+            <p>
+              No dia a dia, levo dados de ERPs, bancos, APIs de telemetria, SharePoint, Excel e PDFs até a camada
+              analítica, seguindo a arquitetura <strong>Medallion</strong> com Delta Lake, Lakeflow e Unity Catalog,
+              sempre com CI/CD, versionamento e separação entre desenvolvimento e produção.
+            </p>
+            <p>
+              Antes da engenharia de dados, fui analista de dados no setor financeiro. Essa base me ajuda a entender a
+              regra de negócio por trás de cada dado e a conversar bem com as áreas usuárias. Gosto de soluções
+              simples, bem documentadas e fáceis de manter.
+            </p>
+          </div>
+
+          <dl class="sobre__meta revelar">
+            <div><dt>Localização</dt><dd>Rio de Janeiro, RJ</dd></div>
+            <div><dt>Formação</dt><dd>Engenharia de Software · Estácio (2027)</dd></div>
+            <div><dt>Modelo</dt><dd>Híbrido ou remoto</dd></div>
+            <div><dt>Status</dt><dd><span class="status"></span>Aberto a oportunidades</dd></div>
+          </dl>
+        </div>
+
+        <!-- Números de escopo do trabalho na OceanPact -->
+        <ul class="numeros revelar">
+          <li><b data-contar="20">0</b><span>fontes de dados integradas</span></li>
+          <li><b data-contar="30">0</b><span>projetos de dados com Asset Bundles</span></li>
+          <li><b data-contar="40">0</b><span>jobs automatizados com CI/CD</span></li>
+          <li><b data-contar="30">0</b><span>tabelas fato e dimensão na Gold</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 02 Projetos ================= -->
+    <section class="secao" id="projetos">
+      <div class="container">
+        <h2 class="secao__titulo"><span>02</span> Projetos</h2>
+
+        <div class="projetos">
+          <!-- Projeto 01: case profissional, desenhado como um job orquestrado -->
+          <article class="job job--destaque revelar" data-dag>
+            <header class="job__barra">
+              <span class="job__nome"><b>job</b> data_lake_oceanpact</span>
+              <span class="job__status" data-status>na fila</span>
+              <span class="job__meta">case profissional · trigger diário</span>
+              <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+            </header>
+
+            <!-- DAG: fontes convergem para a Bronze e seguem até o consumo -->
+            <div class="dag">
+              <div class="dag__col dag__col--fontes">
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>erp_sql</b><small>ERPs · SQL Server · PostgreSQL</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_telemetria</b><small>embarcações · meteorologia</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>sharepoint</b><small>Excel · Microsoft Graph</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>pdf_ocr</b><small>Mistral OCR · IA</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="1" style="--cor: var(--bronze)"><span class="no__estado"></span><b>bronze_ingest</b><small>ADF · MERGE incremental · CDC</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="2" style="--cor: var(--silver)"><span class="no__estado"></span><b>silver_lakeflow</b><small>tipagem · limpeza · dedup</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="3" style="--cor: var(--gold)"><span class="no__estado"></span><b>gold_star_schema</b><small>fatos e dimensões</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="4" style="--cor: var(--acento)"><span class="no__estado"></span><b>analytics</b><small>dashboards BI · Genie Space</small></div>
+              </div>
+            </div>
+
+            <div class="job__info">
+              <div>
+                <h3>Data Lake corporativo · OceanPact</h3>
+                <p>
+                  Construção do lakehouse corporativo de uma empresa de serviços marítimos, desde a configuração do
+                  ambiente: ingestão de ERPs, bancos, APIs de telemetria de embarcações, meteorologia, SharePoint e PDFs,
+                  camadas Bronze, Silver e Gold, deploy automatizado com CI/CD e consumo em dashboards e em consultas em
+                  linguagem natural.
+                </p>
+                <p class="job__nota">Código privado da empresa · detalhes em entrevista</p>
+              </div>
+              <ul class="chips">
+                <li>Azure Databricks</li><li>Azure Data Factory</li><li>PySpark</li><li>SQL</li><li>Delta Lake</li>
+                <li>Lakeflow</li><li>Unity Catalog</li><li>Asset Bundles</li><li>Azure DevOps</li><li>Mistral OCR</li><li>Genie Space</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Projeto 02: portfólio open source -->
+          <article class="job revelar" data-dag>
+            <header class="job__barra">
+              <span class="job__nome"><b>job</b> project_lake_house</span>
+              <span class="job__status" data-status>na fila</span>
+              <span class="job__meta">open source · GitHub Actions + Airflow</span>
+              <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+            </header>
+
+            <div class="dag">
+              <div class="dag__col dag__col--fontes">
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_fipe</b><small>preços de veículos</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_ibge</b><small>localidades</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_open_meteo</b><small>clima</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_camara</b><small>+ PokeAPI</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="1" style="--cor: var(--bronze)"><span class="no__estado"></span><b>bronze_raw</b><small>ingestão incremental por ID</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="2" style="--cor: var(--silver)"><span class="no__estado"></span><b>silver_dlt</b><small>Delta Live Tables</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="3" style="--cor: var(--gold)"><span class="no__estado"></span><b>gold_dim_fact</b><small>Star Schema · EXPECT</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="4" style="--cor: var(--acento)"><span class="no__estado"></span><b>deploy_dev_prod</b><small>Asset Bundles · CI/CD</small></div>
+              </div>
+            </div>
+
+            <div class="job__info">
+              <div>
+                <h3>Project Lake House</h3>
+                <p>
+                  Lakehouse de portfólio com ingestão incremental de 5 APIs públicas (FIPE, PokeAPI, IBGE, Open-Meteo e
+                  Câmara dos Deputados), Silver em Delta Live Tables e Gold em Star Schema com <code>EXPECT</code> e
+                  surrogate keys. Um Asset Bundle por domínio, deploy dev/prod com GitHub Actions e DAG no Airflow
+                  disparando o job pela API do Databricks.
+                </p>
+                <a class="projeto__link" href="https://github.com/Bolapipa/project_lake_house" target="_blank" rel="noopener">código ↗</a>
+              </div>
+              <ul class="chips">
+                <li>Databricks</li><li>Delta Live Tables</li><li>Unity Catalog</li><li>Asset Bundles</li>
+                <li>GitHub Actions</li><li>Airflow</li><li>PySpark</li><li>Spark SQL</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 Stack ================= -->
+    <section class="secao" id="stack">
+      <div class="container">
+        <h2 class="secao__titulo"><span>03</span> Stack</h2>
+
+        <!-- Stack desenhada como um job: o orquestrador dispara as etapas em sequência -->
+        <div class="job stack-job revelar" data-dag>
+          <header class="job__barra">
+            <span class="job__nome"><b>job</b> arthur_stack</span>
+            <span class="job__status" data-status>na fila</span>
+            <span class="job__meta">da fonte ao consumo</span>
+            <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+          </header>
+
+          <!-- Orquestrador: roda primeiro e dispara as etapas -->
+          <div class="no orquestrador" data-ordem="0" style="--cor: var(--acento)">
+            <div class="etapa__topo"><span class="no__estado"></span><b>orchestrate</b><small>orquestração &amp; DataOps</small></div>
+            <ul class="chips"><li>Databricks Jobs</li><li>Airflow</li><li>Asset Bundles</li><li>Azure DevOps</li><li>GitHub Actions</li><li>Git</li><li>Docker</li><li>CI/CD</li></ul>
+          </div>
+
+          <div class="stack-fluxo">
+            <div class="no etapa" data-ordem="1" style="--cor: var(--fonte)">
+              <div class="etapa__topo"><span class="no__estado"></span><b>01_ingest</b><small>ingestão</small></div>
+              <ul class="chips"><li>Azure Data Factory</li><li>APIs REST</li><li>Microsoft Graph</li><li>SQL Server</li><li>PostgreSQL</li><li>Mistral OCR</li><li>ai_parse_document</li></ul>
+            </div>
+            <div class="dag__aresta"><i></i></div>
+            <div class="no etapa" data-ordem="2" style="--cor: var(--bronze)">
+              <div class="etapa__topo"><span class="no__estado"></span><b>02_store</b><small>lakehouse</small></div>
+              <ul class="chips"><li>ADLS Gen2</li><li>Delta Lake</li><li>Unity Catalog</li><li>Entra ID</li><li>Medallion</li></ul>
+            </div>
+            <div class="dag__aresta"><i></i></div>
+            <div class="no etapa" data-ordem="3" style="--cor: var(--silver)">
+              <div class="etapa__topo"><span class="no__estado"></span><b>03_transform</b><small>processamento</small></div>
+              <ul class="chips"><li>Python</li><li>PySpark</li><li>SQL</li><li>Spark SQL</li><li>Lakeflow / DLT</li><li>CDC</li></ul>
+            </div>
+            <div class="dag__aresta"><i></i></div>
+            <div class="no etapa" data-ordem="4" style="--cor: var(--gold)">
+              <div class="etapa__topo"><span class="no__estado"></span><b>04_analytics</b><small>consumo</small></div>
+              <ul class="chips"><li>Star Schema</li><li>Fatos e dimensões</li><li>Power BI</li><li>Genie Space</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 Experiência ================= -->
+    <section class="secao" id="experiencia">
+      <div class="container">
+        <h2 class="secao__titulo"><span>04</span> Experiência</h2>
+
+        <ol class="timeline">
+          <li class="revelar">
+            <span class="timeline__data">mai 2025 — atual</span>
+            <h3>Engenharia de Dados <em>· OceanPact Serviços Marítimos</em></h3>
+            <p class="timeline__cargo">Estagiário de Engenharia de Dados</p>
+            <ul>
+              <li>Construção do Data Lake corporativo no Azure Databricks desde o início, com arquitetura Medallion.</li>
+              <li>Pipelines batch e incrementais com Azure Data Factory, PySpark e SQL, com CDC e cargas históricas.</li>
+              <li>Deploy de jobs e pipelines Lakeflow com Asset Bundles, Azure DevOps e CI/CD, separando dev e prod.</li>
+              <li>Modelagem dimensional na camada Gold para RH, finanças, jurídico, logística, manutenção e operações.</li>
+              <li>Extração de PDFs com Mistral OCR e IA; Genie Space para consultas em linguagem natural.</li>
+            </ul>
+          </li>
+          <li class="revelar">
+            <span class="timeline__data">ago 2023 — mar 2025</span>
+            <h3>Análise de Dados <em>· Vesuvius Refratários</em></h3>
+            <p class="timeline__cargo">Estagiário de Análise de Dados · setor financeiro</p>
+            <ul>
+              <li>Extração e tratamento de dados do SAP e ETL com Power Query e Excel.</li>
+              <li>Automação de relatórios entre SAP e Excel com VBA.</li>
+              <li>Dashboards no Power BI com indicadores financeiros e conciliação de dados entre sistemas.</li>
+            </ul>
+          </li>
+          <li class="revelar timeline__edu">
+            <span class="timeline__data">2023 — 2027</span>
+            <h3>Bacharelado em Engenharia de Software <em>· Estácio</em></h3>
+          </li>
+          <li class="revelar timeline__edu">
+            <span class="timeline__data">2021 — 2022</span>
+            <h3>Técnico em Automação Industrial <em>· Firjan Senai</em></h3>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 05 Contato ================= -->
+    <section class="secao" id="contato">
+      <div class="container">
+        <h2 class="secao__titulo"><span>05</span> Vamos conversar</h2>
+        <p class="contato__intro revelar">
+          Estou aberto a oportunidades como Engenheiro de Dados (híbrido ou remoto). Se quiser falar sobre uma vaga,
+          um projeto ou trocar ideia sobre lakehouse, é só chamar.
+        </p>
+
+        <div class="contato__grid">
+          <!-- Formulário simples: abre o app de e-mail com a mensagem preenchida -->
+          <form class="contato__form revelar" id="contatoForm">
+            <label>Seu nome<input name="nome" type="text" required></label>
+            <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
+            <button class="btn btn--primario" type="submit">Enviar mensagem</button>
+            <small>O botão abre o seu aplicativo de e-mail com a mensagem pronta.</small>
+          </form>
+
+          <ul class="contato__cards revelar">
+            <li><a href="mailto:delacortearthur@gmail.com"><span>E-mail</span><b>delacortearthur@gmail.com</b></a></li>
+            <li><a href="https://www.linkedin.com/in/arthur-viana-delacorte" target="_blank" rel="noopener"><span>LinkedIn</span><b>in/arthur-viana-delacorte</b></a></li>
+            <li><a href="https://github.com/Bolapipa" target="_blank" rel="noopener"><span>GitHub</span><b>github.com/Bolapipa</b></a></li>
+            <li><a href="assets/CV_Arthur_Delacorte.pdf" target="_blank" rel="noopener"><span>Currículo</span><b>CV em PDF ↓</b></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__inner">
+      <span>© <span id="ano">2026</span> Arthur Viana Delacorte</span>
+      <span>Feito com HTML, CSS e JavaScript · hospedado no GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
