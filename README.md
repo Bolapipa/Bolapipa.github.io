@@ -2,7 +2,7 @@
 
 Portfólio de **Arthur Viana Delacorte**, Engenheiro de Dados (Azure Databricks · PySpark · SQL · Python · Delta Lake).
 
-Site estático em HTML, CSS e JavaScript puros, sem etapa de build, publicado com GitHub Pages.
+Site estático em HTML, CSS e JavaScript puros, sem etapa de build, publicado na Vercel em https://arthurdelacorte.vercel.app.
 
 ## Estrutura
 
