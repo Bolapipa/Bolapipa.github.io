@@ -38,6 +38,9 @@
     <div class="nav__inner">
       <a class="nav__logo" href="#inicio" aria-label="Início">AD<span>.</span></a>
 
+      <!-- Progresso da página como execução de um job: atualizado ao rolar -->
+      <p class="nav__run" id="navRun" aria-hidden="true"><span class="nav__run-ponto"></span><span id="navRunTexto">na fila</span></p>
+
       <nav aria-label="Seções">
         <ul class="nav__links" id="menu">
           <li><a href="#sobre">Sobre</a></li>
@@ -60,12 +63,11 @@
     <section class="hero" id="inicio">
       <div class="container hero__grid">
         <div class="hero__texto">
-          <p class="eyebrow">Engenharia de Dados · Data Lakehouse · Azure</p>
           <h1 class="hero__nome">
             <span>Arthur</span>
             <span class="hero__sobrenome">Delacorte<span class="cursor" aria-hidden="true">_</span></span>
           </h1>
-          <p class="hero__cargo">Engenheiro de Dados · Rio de Janeiro</p>
+          <p class="hero__cargo">Engenheiro de Dados no Rio de Janeiro</p>
           <p class="hero__tagline">Pipelines de dados confiáveis, <em>da ingestão ao insight.</em></p>
 
           <div class="hero__acoes">
@@ -111,18 +113,25 @@
       </div>
     </section>
 
-    <!-- ================= 01 Sobre ================= -->
-    <section class="secao" id="sobre">
-      <div class="container">
-        <h2 class="secao__titulo"><span>01</span> Sobre</h2>
+    <!--
+      Cada seção é uma task do job "portfolio". Ao rolar, a task da seção na tela fica "rodando",
+      as anteriores ficam concluídas e as seguintes, na fila (ver main.js).
+    -->
 
-        <div class="sobre__grid">
+    <!-- ================= Sobre ================= -->
+    <section class="secao" id="sobre" data-task>
+      <div class="container secao__grid">
+        <header class="secao__lado">
+          <p class="task"><span class="task__estado"></span><span class="task__nome">01_sobre</span></p>
+          <h2 class="secao__titulo">Sobre</h2>
+        </header>
+
+        <div class="secao__conteudo">
+          <p class="sobre__lead revelar">
+            Construí, junto com o time, o <strong>Data Lake corporativo da OceanPact</strong> no Azure Databricks
+            desde o zero: da configuração do ambiente na nuvem até dados confiáveis em dashboards e decisões de negócio.
+          </p>
           <div class="sobre__texto revelar">
-            <p>
-              Sou Engenheiro de Dados e construí, junto com o time, o <strong>Data Lake corporativo da OceanPact</strong>
-              no Azure Databricks desde o zero: da configuração do ambiente na nuvem até a entrega de dados
-              confiáveis para dashboards e decisões de negócio.
-            </p>
             <p>
               No dia a dia, levo dados de ERPs, bancos, APIs de telemetria, SharePoint, Excel e PDFs até a camada
               analítica, seguindo a arquitetura <strong>Medallion</strong> com Delta Lake, Lakeflow e Unity Catalog,
@@ -137,29 +146,33 @@
 
           <dl class="sobre__meta revelar">
             <div><dt>Localização</dt><dd>Rio de Janeiro, RJ</dd></div>
-            <div><dt>Formação</dt><dd>Engenharia de Software · Estácio (2027)</dd></div>
+            <div><dt>Formação</dt><dd>Engenharia de Software, Estácio (2027)</dd></div>
             <div><dt>Modelo</dt><dd>Híbrido ou remoto</dd></div>
-            <div><dt>Status</dt><dd><span class="status"></span>Aberto a oportunidades</dd></div>
+            <div><dt>Status</dt><dd class="sobre__status"><span class="status"></span>Aberto a oportunidades</dd></div>
           </dl>
-        </div>
 
-        <!-- Números de escopo do trabalho na OceanPact -->
-        <ul class="numeros revelar">
-          <li><b data-contar="20">0</b><span>fontes de dados integradas</span></li>
-          <li><b data-contar="30">0</b><span>projetos de dados com Asset Bundles</span></li>
-          <li><b data-contar="40">0</b><span>jobs automatizados com CI/CD</span></li>
-          <li><b data-contar="30">0</b><span>tabelas fato e dimensão na Gold</span></li>
-        </ul>
+          <!-- Números de escopo do trabalho na OceanPact -->
+          <ul class="numeros revelar">
+            <li><b data-contar="20">0</b><span>fontes de dados integradas</span></li>
+            <li><b data-contar="30">0</b><span>projetos de dados com Asset Bundles</span></li>
+            <li><b data-contar="40">0</b><span>jobs automatizados com CI/CD</span></li>
+            <li><b data-contar="30">0</b><span>tabelas fato e dimensão na Gold</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- ================= 02 Projetos ================= -->
-    <section class="secao" id="projetos">
-      <div class="container">
-        <h2 class="secao__titulo"><span>02</span> Projetos</h2>
+    <!-- ================= Projetos ================= -->
+    <section class="secao secao--larga" id="projetos" data-task>
+      <div class="container secao__grid">
+        <header class="secao__lado">
+          <p class="task"><span class="task__estado"></span><span class="task__nome">02_projetos</span></p>
+          <h2 class="secao__titulo">Projetos</h2>
+          <p class="secao__resumo">Cada projeto roda como um job: as tasks acendem na ordem em que os dados passam por elas.</p>
+        </header>
 
-        <div class="projetos">
-          <!-- Projeto 01: case profissional, desenhado como um job orquestrado -->
+        <div class="secao__conteudo projetos">
+          <!-- Projeto: case profissional, desenhado como um job orquestrado -->
           <article class="job job--destaque revelar" data-dag>
             <header class="job__barra">
               <span class="job__nome"><b>job</b> data_lake_oceanpact</span>
@@ -196,14 +209,14 @@
 
             <div class="job__info">
               <div>
-                <h3>Data Lake corporativo · OceanPact</h3>
+                <h3>Data Lake corporativo da OceanPact</h3>
                 <p>
                   Construção do lakehouse corporativo de uma empresa de serviços marítimos, desde a configuração do
                   ambiente: ingestão de ERPs, bancos, APIs de telemetria de embarcações, meteorologia, SharePoint e PDFs,
                   camadas Bronze, Silver e Gold, deploy automatizado com CI/CD e consumo em dashboards e em consultas em
                   linguagem natural.
                 </p>
-                <p class="job__nota">Código privado da empresa · detalhes em entrevista</p>
+                <p class="job__nota">Código privado da empresa, detalhes em entrevista</p>
               </div>
               <ul class="chips">
                 <li>Azure Databricks</li><li>Azure Data Factory</li><li>PySpark</li><li>SQL</li><li>Delta Lake</li>
@@ -212,7 +225,58 @@
             </div>
           </article>
 
-          <!-- Projeto 02: portfólio open source -->
+          <!-- Projeto: banco operacional em construção. data-parcial = quantas etapas já terminaram -->
+          <article class="job job--construcao revelar" data-dag data-parcial="1" data-parcial-texto="em construção · fase 1 de 8">
+            <header class="job__barra">
+              <span class="job__nome"><b>job</b> fleet_ops_db</span>
+              <span class="job__status" data-status>na fila</span>
+              <span class="job__meta">open source · PostgreSQL 17 · Docker</span>
+              <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+            </header>
+
+            <div class="dag">
+              <div class="dag__col">
+                <div class="no" data-ordem="0" style="--cor: var(--fonte)"><span class="no__estado"></span><b>ambiente</b><small>Docker Compose · Postgres 17</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="1" style="--cor: var(--bronze)"><span class="no__estado"></span><b>modelagem</b><small>ER · 3FN · constraints</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="2" style="--cor: var(--silver)"><span class="no__estado"></span><b>migrations_seeds</b><small>versionadas · 10M linhas</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="3" style="--cor: var(--gold)"><span class="no__estado"></span><b>performance</b><small>BRIN · partições · EXPLAIN</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="4" style="--cor: var(--acento)"><span class="no__estado"></span><b>cdc_bronze</b><small>RLS · CI · extração</small></div>
+              </div>
+            </div>
+
+            <div class="job__info">
+              <div>
+                <h3>Fleet Ops DB</h3>
+                <p>
+                  Banco operacional (OLTP) de uma frota marítima fictícia, construído do zero em PostgreSQL: modelagem
+                  em 3FN com constraints de verdade (incluindo <code>EXCLUDE</code> para embarques sem sobreposição),
+                  migrations versionadas, milhões de leituras de sensores, índices BRIN e particionamento medidos com
+                  <code>EXPLAIN ANALYZE</code>, Row-Level Security, CI no GitHub Actions e extração incremental para a
+                  Bronze de um lakehouse.
+                </p>
+                <p class="job__nota">Em construção, uma fase por vez. O job acima mostra onde estou.</p>
+                <a class="projeto__link" href="https://github.com/Bolapipa/fleet-ops-db" target="_blank" rel="noopener">código ↗</a>
+              </div>
+              <ul class="chips">
+                <li>PostgreSQL</li><li>SQL</li><li>PL/pgSQL</li><li>Python</li><li>Docker</li>
+                <li>pytest</li><li>GitHub Actions</li><li>CDC</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Projeto: portfólio open source -->
           <article class="job revelar" data-dag>
             <header class="job__barra">
               <span class="job__nome"><b>job</b> project_lake_house</span>
@@ -267,60 +331,69 @@
       </div>
     </section>
 
-    <!-- ================= 03 Stack ================= -->
-    <section class="secao" id="stack">
-      <div class="container">
-        <h2 class="secao__titulo"><span>03</span> Stack</h2>
+    <!-- ================= Stack ================= -->
+    <section class="secao secao--larga" id="stack" data-task>
+      <div class="container secao__grid">
+        <header class="secao__lado">
+          <p class="task"><span class="task__estado"></span><span class="task__nome">03_stack</span></p>
+          <h2 class="secao__titulo">Stack</h2>
+          <p class="secao__resumo">As ferramentas que uso, na ordem em que o dado passa por elas.</p>
+        </header>
 
-        <!-- Stack desenhada como um job: o orquestrador dispara as etapas em sequência -->
-        <div class="job stack-job revelar" data-dag>
-          <header class="job__barra">
-            <span class="job__nome"><b>job</b> arthur_stack</span>
-            <span class="job__status" data-status>na fila</span>
-            <span class="job__meta">da fonte ao consumo</span>
-            <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
-          </header>
+        <div class="secao__conteudo">
+          <!-- Stack desenhada como um job: o orquestrador dispara as etapas em sequência -->
+          <div class="job stack-job revelar" data-dag>
+            <header class="job__barra">
+              <span class="job__nome"><b>job</b> arthur_stack</span>
+              <span class="job__status" data-status>na fila</span>
+              <span class="job__meta">da fonte ao consumo</span>
+              <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+            </header>
 
-          <!-- Orquestrador: roda primeiro e dispara as etapas -->
-          <div class="no orquestrador" data-ordem="0" style="--cor: var(--acento)">
-            <div class="etapa__topo"><span class="no__estado"></span><b>orchestrate</b><small>orquestração &amp; DataOps</small></div>
-            <ul class="chips"><li>Databricks Jobs</li><li>Airflow</li><li>Asset Bundles</li><li>Azure DevOps</li><li>GitHub Actions</li><li>Git</li><li>Docker</li><li>CI/CD</li></ul>
-          </div>
+            <!-- Orquestrador: roda primeiro e dispara as etapas -->
+            <div class="no orquestrador" data-ordem="0" style="--cor: var(--acento)">
+              <div class="etapa__topo"><span class="no__estado"></span><b>orchestrate</b><small>orquestração &amp; DataOps</small></div>
+              <ul class="chips"><li>Databricks Jobs</li><li>Airflow</li><li>Asset Bundles</li><li>Azure DevOps</li><li>GitHub Actions</li><li>Git</li><li>Docker</li><li>CI/CD</li></ul>
+            </div>
 
-          <div class="stack-fluxo">
-            <div class="no etapa" data-ordem="1" style="--cor: var(--fonte)">
-              <div class="etapa__topo"><span class="no__estado"></span><b>01_ingest</b><small>ingestão</small></div>
-              <ul class="chips"><li>Azure Data Factory</li><li>APIs REST</li><li>Microsoft Graph</li><li>SQL Server</li><li>PostgreSQL</li><li>Mistral OCR</li><li>ai_parse_document</li></ul>
-            </div>
-            <div class="dag__aresta"><i></i></div>
-            <div class="no etapa" data-ordem="2" style="--cor: var(--bronze)">
-              <div class="etapa__topo"><span class="no__estado"></span><b>02_store</b><small>lakehouse</small></div>
-              <ul class="chips"><li>ADLS Gen2</li><li>Delta Lake</li><li>Unity Catalog</li><li>Entra ID</li><li>Medallion</li></ul>
-            </div>
-            <div class="dag__aresta"><i></i></div>
-            <div class="no etapa" data-ordem="3" style="--cor: var(--silver)">
-              <div class="etapa__topo"><span class="no__estado"></span><b>03_transform</b><small>processamento</small></div>
-              <ul class="chips"><li>Python</li><li>PySpark</li><li>SQL</li><li>Spark SQL</li><li>Lakeflow / DLT</li><li>CDC</li></ul>
-            </div>
-            <div class="dag__aresta"><i></i></div>
-            <div class="no etapa" data-ordem="4" style="--cor: var(--gold)">
-              <div class="etapa__topo"><span class="no__estado"></span><b>04_analytics</b><small>consumo</small></div>
-              <ul class="chips"><li>Star Schema</li><li>Fatos e dimensões</li><li>Power BI</li><li>Genie Space</li></ul>
+            <div class="stack-fluxo">
+              <div class="no etapa" data-ordem="1" style="--cor: var(--fonte)">
+                <div class="etapa__topo"><span class="no__estado"></span><b>01_ingest</b><small>ingestão</small></div>
+                <ul class="chips"><li>Azure Data Factory</li><li>APIs REST</li><li>Microsoft Graph</li><li>SQL Server</li><li>PostgreSQL</li><li>Mistral OCR</li><li>ai_parse_document</li></ul>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="no etapa" data-ordem="2" style="--cor: var(--bronze)">
+                <div class="etapa__topo"><span class="no__estado"></span><b>02_store</b><small>lakehouse</small></div>
+                <ul class="chips"><li>ADLS Gen2</li><li>Delta Lake</li><li>Unity Catalog</li><li>Entra ID</li><li>Medallion</li></ul>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="no etapa" data-ordem="3" style="--cor: var(--silver)">
+                <div class="etapa__topo"><span class="no__estado"></span><b>03_transform</b><small>processamento</small></div>
+                <ul class="chips"><li>Python</li><li>PySpark</li><li>SQL</li><li>Spark SQL</li><li>Lakeflow / DLT</li><li>CDC</li></ul>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="no etapa" data-ordem="4" style="--cor: var(--gold)">
+                <div class="etapa__topo"><span class="no__estado"></span><b>04_analytics</b><small>consumo</small></div>
+                <ul class="chips"><li>Star Schema</li><li>Fatos e dimensões</li><li>Power BI</li><li>Genie Space</li></ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 04 Experiência ================= -->
-    <section class="secao" id="experiencia">
-      <div class="container">
-        <h2 class="secao__titulo"><span>04</span> Experiência</h2>
+    <!-- ================= Experiência ================= -->
+    <section class="secao" id="experiencia" data-task>
+      <div class="container secao__grid">
+        <header class="secao__lado">
+          <p class="task"><span class="task__estado"></span><span class="task__nome">04_experiencia</span></p>
+          <h2 class="secao__titulo">Experiência</h2>
+        </header>
 
-        <ol class="timeline">
+        <ol class="secao__conteudo timeline">
           <li class="revelar">
             <span class="timeline__data">mai 2025 — atual</span>
-            <h3>Engenharia de Dados <em>· OceanPact Serviços Marítimos</em></h3>
+            <h3>Engenharia de Dados <em>na OceanPact Serviços Marítimos</em></h3>
             <p class="timeline__cargo">Estagiário de Engenharia de Dados</p>
             <ul>
               <li>Construção do Data Lake corporativo no Azure Databricks desde o início, com arquitetura Medallion.</li>
@@ -332,8 +405,8 @@
           </li>
           <li class="revelar">
             <span class="timeline__data">ago 2023 — mar 2025</span>
-            <h3>Análise de Dados <em>· Vesuvius Refratários</em></h3>
-            <p class="timeline__cargo">Estagiário de Análise de Dados · setor financeiro</p>
+            <h3>Análise de Dados <em>na Vesuvius Refratários</em></h3>
+            <p class="timeline__cargo">Estagiário de Análise de Dados, setor financeiro</p>
             <ul>
               <li>Extração e tratamento de dados do SAP e ETL com Power Query e Excel.</li>
               <li>Automação de relatórios entre SAP e Excel com VBA.</li>
@@ -342,40 +415,46 @@
           </li>
           <li class="revelar timeline__edu">
             <span class="timeline__data">2023 — 2027</span>
-            <h3>Bacharelado em Engenharia de Software <em>· Estácio</em></h3>
+            <h3>Bacharelado em Engenharia de Software <em>na Estácio</em></h3>
           </li>
           <li class="revelar timeline__edu">
             <span class="timeline__data">2021 — 2022</span>
-            <h3>Técnico em Automação Industrial <em>· Firjan Senai</em></h3>
+            <h3>Técnico em Automação Industrial <em>na Firjan Senai</em></h3>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ================= 05 Contato ================= -->
-    <section class="secao" id="contato">
-      <div class="container">
-        <h2 class="secao__titulo"><span>05</span> Vamos conversar</h2>
-        <p class="contato__intro revelar">
-          Estou aberto a oportunidades como Engenheiro de Dados (híbrido ou remoto). Se quiser falar sobre uma vaga,
-          um projeto ou trocar ideia sobre lakehouse, é só chamar.
-        </p>
+    <!-- ================= Contato ================= -->
+    <section class="secao" id="contato" data-task>
+      <div class="container secao__grid">
+        <header class="secao__lado">
+          <p class="task"><span class="task__estado"></span><span class="task__nome">05_contato</span></p>
+          <h2 class="secao__titulo">Vamos conversar</h2>
+        </header>
 
-        <div class="contato__grid">
-          <!-- Formulário simples: abre o app de e-mail com a mensagem preenchida -->
-          <form class="contato__form revelar" id="contatoForm">
-            <label>Seu nome<input name="nome" type="text" required></label>
-            <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
-            <button class="btn btn--primario" type="submit">Enviar mensagem</button>
-            <small>O botão abre o seu aplicativo de e-mail com a mensagem pronta.</small>
-          </form>
+        <div class="secao__conteudo">
+          <p class="contato__intro revelar">
+            Estou aberto a oportunidades como Engenheiro de Dados (híbrido ou remoto). Se quiser falar sobre uma vaga,
+            um projeto ou trocar ideia sobre lakehouse, é só chamar.
+          </p>
 
-          <ul class="contato__cards revelar">
-            <li><a href="mailto:delacortearthur@gmail.com"><span>E-mail</span><b>delacortearthur@gmail.com</b></a></li>
-            <li><a href="https://www.linkedin.com/in/arthur-viana-delacorte" target="_blank" rel="noopener"><span>LinkedIn</span><b>in/arthur-viana-delacorte</b></a></li>
-            <li><a href="https://github.com/Bolapipa" target="_blank" rel="noopener"><span>GitHub</span><b>github.com/Bolapipa</b></a></li>
-            <li><a href="assets/CV_Arthur_Delacorte.pdf" target="_blank" rel="noopener"><span>Currículo</span><b>CV em PDF ↓</b></a></li>
-          </ul>
+          <div class="contato__grid">
+            <!-- Formulário simples: abre o app de e-mail com a mensagem preenchida -->
+            <form class="contato__form revelar" id="contatoForm">
+              <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
+              <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
+              <button class="btn btn--primario" type="submit">Enviar mensagem</button>
+              <small>O botão abre o seu aplicativo de e-mail com a mensagem pronta.</small>
+            </form>
+
+            <ul class="contato__lista revelar">
+              <li><a href="mailto:delacortearthur@gmail.com"><span>E-mail</span><b>delacortearthur@gmail.com</b></a></li>
+              <li><a href="https://www.linkedin.com/in/arthur-viana-delacorte" target="_blank" rel="noopener"><span>LinkedIn</span><b>in/arthur-viana-delacorte</b></a></li>
+              <li><a href="https://github.com/Bolapipa" target="_blank" rel="noopener"><span>GitHub</span><b>github.com/Bolapipa</b></a></li>
+              <li><a href="assets/CV_Arthur_Delacorte.pdf" target="_blank" rel="noopener"><span>Currículo</span><b>CV em PDF ↓</b></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -384,7 +463,7 @@
   <footer class="rodape">
     <div class="container rodape__inner">
       <span>© <span id="ano">2026</span> Arthur Viana Delacorte</span>
-      <span>Feito com HTML, CSS e JavaScript · hospedado no GitHub Pages</span>
+      <span>Feito com HTML, CSS e JavaScript, hospedado na Vercel</span>
     </div>
   </footer>
 
