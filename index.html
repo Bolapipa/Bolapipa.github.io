@@ -225,6 +225,60 @@
             </div>
           </article>
 
+          <!-- Projeto: monitor de dados abertos em construção. data-parcial = quantas etapas já terminaram -->
+          <article class="job job--construcao revelar" data-dag data-parcial="3" data-parcial-texto="em construção · Gold e site em protótipo">
+            <header class="job__barra">
+              <span class="job__nome"><b>job</b> clock_in_diario</span>
+              <span class="job__status" data-status>na fila</span>
+              <span class="job__meta">open source · Python + DuckDB · GitHub Actions</span>
+              <button class="job__rerun" type="button" data-rerun aria-label="Executar o job de novo">↻ run</button>
+            </header>
+
+            <!-- DAG: fontes públicas convergem para a Bronze e seguem até a API e o site -->
+            <div class="dag">
+              <div class="dag__col dag__col--fontes">
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>api_dados_gov_br</b><small>19,6 mil bases</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>painel_cgu</b><small>cronograma de publicação</small></div>
+                <div class="no no--fonte" data-ordem="0"><span class="no__estado"></span><b>links_dos_recursos</b><small>~100 mil testes por dia</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="1" style="--cor: var(--bronze)"><span class="no__estado"></span><b>bronze_ingest</b><small>Parquet · estado incremental</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="2" style="--cor: var(--silver)"><span class="no__estado"></span><b>silver_transform</b><small>publicador real · saúde dos links</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="3" style="--cor: var(--gold)"><span class="no__estado"></span><b>gold_status</b><small>prazo esperado · motivo explicável</small></div>
+              </div>
+              <div class="dag__aresta"><i></i></div>
+              <div class="dag__col">
+                <div class="no" data-ordem="4" style="--cor: var(--acento)"><span class="no__estado"></span><b>api_site</b><small>JSON estático · site</small></div>
+              </div>
+            </div>
+
+            <div class="job__info">
+              <div>
+                <h3>Clock-in</h3>
+                <p>
+                  Monitor de dados abertos do Brasil: todo dia um pipeline agendado no GitHub Actions coleta o catálogo do
+                  dados.gov.br (19,6 mil bases), testa os links de cada base e mostra, órgão por órgão, quem mantém os
+                  dados vivos. Camadas Bronze, Silver e Gold em Parquet com DuckDB, estado incremental guardado em releases
+                  do GitHub e custo zero. O próximo passo é ler o conteúdo dos arquivos (hash e schema) para dizer se cada
+                  base realmente se atualiza no prazo.
+                </p>
+                <p class="job__nota">Em construção: a coleta e a Silver rodam todo dia; o status por conteúdo e o site estão em protótipo.</p>
+                <a class="projeto__link" href="https://github.com/Bolapipa/clock-in" target="_blank" rel="noopener">código ↗</a>
+              </div>
+              <ul class="chips">
+                <li>Python</li><li>DuckDB</li><li>Parquet</li><li>SQL</li><li>asyncio</li>
+                <li>GitHub Actions</li><li>pytest</li><li>Medallion</li>
+              </ul>
+            </div>
+          </article>
+
           <!-- Projeto: banco operacional em construção. data-parcial = quantas etapas já terminaram -->
           <article class="job job--construcao revelar" data-dag data-parcial="1" data-parcial-texto="em construção · fase 1 de 8">
             <header class="job__barra">

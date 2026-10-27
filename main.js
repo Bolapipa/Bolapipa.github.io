@@ -241,6 +241,12 @@ const projetos = [
     nota: "código privado da empresa, detalhes em entrevista",
   },
   {
+    chave: "clockin", nome: "Clock-in", cor: "t-g", status: "em construção, Gold e site em protótipo",
+    resumo: "Monitor de dados abertos do Brasil: todo dia testa os links de 19,6 mil bases do dados.gov.br e mostra, órgão por órgão, quem mantém os dados vivos. Bronze, Silver e Gold em Parquet com DuckDB, agendado no GitHub Actions, com estado incremental em releases do GitHub e custo zero.",
+    stack: "Python, DuckDB, Parquet, SQL, asyncio, GitHub Actions, pytest",
+    url: "https://github.com/Bolapipa/clock-in",
+  },
+  {
     chave: "fleet", nome: "Fleet Ops DB", cor: "t-b", status: "em construção, fase 1 de 8",
     resumo: "Banco operacional (OLTP) em PostgreSQL de uma frota marítima fictícia: modelagem em 3FN com constraints, migrations versionadas, milhões de leituras de sensores, BRIN e particionamento medidos com EXPLAIN ANALYZE, Row-Level Security e CDC para o lakehouse.",
     stack: "PostgreSQL, SQL, PL/pgSQL, Python, Docker, pytest, GitHub Actions",
@@ -333,7 +339,7 @@ const comandos = {
           `${i + 1}`,
           `<span class="${p.cor}">${p.nome}</span>${p.status ? ` <span class="t-fraco">(${p.status})</span>` : ""}`,
         ]), 60);
-        escrever("digite <b>projetos 2</b> ou <b>projetos fleet</b> para ver os detalhes.", "t-fraco");
+        escrever("digite <b>projetos 2</b> ou <b>projetos clockin</b> para ver os detalhes.", "t-fraco");
         return;
       }
       const p = encontrar(projetos, termo);
