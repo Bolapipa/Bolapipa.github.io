@@ -241,10 +241,11 @@ const projetos = [
     nota: "código privado da empresa, detalhes em entrevista",
   },
   {
-    chave: "clockin", nome: "Clock-in", cor: "t-g", status: "em construção, Gold e site em protótipo",
-    resumo: "Monitor de dados abertos do Brasil: todo dia testa os links de 19,6 mil bases do dados.gov.br e mostra, órgão por órgão, quem mantém os dados vivos. Bronze, Silver e Gold em Parquet com DuckDB, agendado no GitHub Actions, com estado incremental em releases do GitHub e custo zero.",
-    stack: "Python, DuckDB, Parquet, SQL, asyncio, GitHub Actions, pytest",
+    chave: "clockin", nome: "Clock-in", cor: "t-g", status: "em construção, site no ar e status por conteúdo em andamento",
+    resumo: "Monitor de dados abertos do Brasil: todo dia testa os links de 19,6 mil bases do dados.gov.br e mostra, órgão por órgão, quem mantém os dados vivos. Bronze, Silver e Gold em Parquet com DuckDB, agendado no GitHub Actions, com estado incremental em releases do GitHub e custo zero. O site (Next.js, mostrador em WebGPU) é publicado na Vercel todo dia.",
+    stack: "Python, DuckDB, Parquet, SQL, asyncio, GitHub Actions, pytest, Next.js, WebGPU, Vercel",
     url: "https://github.com/Bolapipa/clock-in",
+    site: "https://clock-in-indol.vercel.app",
   },
   {
     chave: "fleet", nome: "Fleet Ops DB", cor: "t-b", status: "em construção, fase 1 de 8",
@@ -352,6 +353,7 @@ const comandos = {
       await escreverTabela([
         ...(p.status ? [["status", p.status]] : []),
         ["stack", p.stack],
+        ...(p.site ? [["site", link(p.site, p.site.replace("https://", ""))]] : []),
         p.url ? ["código", link(p.url, p.url.replace("https://", ""))] : ["código", p.nota],
       ], 50);
     },
