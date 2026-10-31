@@ -245,7 +245,7 @@ const projetos = [
     resumo: "Monitor de dados abertos do Brasil: todo dia testa os links de 19,6 mil bases do dados.gov.br e mostra, órgão por órgão, quem mantém os dados vivos. Bronze, Silver e Gold em Parquet com DuckDB, agendado no GitHub Actions, com estado incremental em releases do GitHub e custo zero. O site (Next.js, mostrador em WebGPU) é publicado na Vercel todo dia.",
     stack: "Python, DuckDB, Parquet, SQL, asyncio, GitHub Actions, pytest, Next.js, WebGPU, Vercel",
     url: "https://github.com/Bolapipa/clock-in",
-    site: "https://clock-in-indol.vercel.app",
+    site: "https://clock-in-monitor.vercel.app",
   },
   {
     chave: "fleet", nome: "Fleet Ops DB", cor: "t-b", status: "em construção, fase 1 de 8",
