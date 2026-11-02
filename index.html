@@ -274,20 +274,24 @@
                 <a class="projeto__link" href="https://clock-in-monitor.vercel.app" target="_blank" rel="noopener">site ↗</a>
                 <a class="projeto__link" href="https://github.com/Bolapipa/clock-in" target="_blank" rel="noopener">código ↗</a>
               </div>
-              <ul class="chips">
-                <li>Python</li><li>DuckDB</li><li>Parquet</li><li>SQL</li><li>asyncio</li>
-                <li>GitHub Actions</li><li>pytest</li><li>Medallion</li><li>Next.js</li><li>WebGPU</li><li>Vercel</li>
-              </ul>
+              <div class="job__lado">
+                <!-- Gravação do mostrador do site no ar, em laço de 9 s (clique abre o site) -->
+                <figure class="job__captura">
+                  <a href="https://clock-in-monitor.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o site do Clock-in">
+                    <picture>
+                      <source media="(prefers-reduced-motion: reduce)" srcset="img/clock-in-parado.png">
+                      <img src="img/clock-in.webp" width="360" height="360" loading="lazy"
+                        alt="Mostrador do Clock-in: um relógio feito de pontos coloridos, em que um ponteiro âmbar varre os links e mostra que 83,5% respondem bem.">
+                    </picture>
+                  </a>
+                  <figcaption>site no ar (gravação) · dados de 31/10/2026</figcaption>
+                </figure>
+                <ul class="chips">
+                  <li>Python</li><li>DuckDB</li><li>Parquet</li><li>SQL</li><li>asyncio</li>
+                  <li>GitHub Actions</li><li>pytest</li><li>Medallion</li><li>Next.js</li><li>WebGPU</li><li>Vercel</li>
+                </ul>
+              </div>
             </div>
-
-            <!-- Captura do site no ar (clique abre o site) -->
-            <figure class="job__captura">
-              <a href="https://clock-in-monitor.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o site do Clock-in">
-                <img src="img/clock-in.png" width="1280" height="760" loading="lazy"
-                  alt="Página inicial do Clock-in: um relógio feito de pontos coloridos mostra que 91,2% dos links testados respondem bem.">
-              </a>
-              <figcaption>site no ar · dados de 30/10/2026 · mostrador em WebGPU</figcaption>
-            </figure>
           </article>
 
           <!-- Projeto: banco operacional em construção. data-parcial = quantas etapas já terminaram -->
